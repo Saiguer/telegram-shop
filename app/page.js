@@ -1,8 +1,8 @@
 import { supabase } from "../lib/supabase";
 
 export default async function Home() {
-  const { data: products } = await supabase
-    .from("products")
+  const { data: Products } = await supabase
+    .from("Products")
     .select("*")
     .order("created_at", { ascending: false });
 
@@ -11,7 +11,7 @@ export default async function Home() {
       <h1>Mi Tienda</h1>
       <p>Productos disponibles</p>
 
-      {products?.map((product) => (
+      {Products?.map((product) => (
         <div
           key={product.id}
           style={{
